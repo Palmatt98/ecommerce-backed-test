@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: frantoionapoli
+
+  #adesso ci colleghiamo al DB
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/frantoionapoli
+    username: root
+    password: root
