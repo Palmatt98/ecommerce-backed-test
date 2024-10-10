@@ -3,7 +3,6 @@ package com.frantoionapoli.service;
 
 import com.frantoionapoli.model.Category;
 import com.frantoionapoli.model.Product;
-import com.frantoionapoli.repository.CategoryRepository;
 import com.frantoionapoli.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
