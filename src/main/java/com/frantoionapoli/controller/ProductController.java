@@ -5,9 +5,9 @@ import com.frantoionapoli.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -21,4 +21,17 @@ public class ProductController {
         Product productCreated = productService.saveProduct(product);
         return new ResponseEntity<>(productCreated, HttpStatus.CREATED);
     }
+
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getListProduct() {
+        List<Product> listProduct = productService.getProducts();
+        return new ResponseEntity<>(listProduct, HttpStatus.OK);
+    }
+
+    @GetMapping("/products/category/{categoryId}")
+    public ResponseEntity<List<Product>> getListProductByCategory(@PathVariable Integer categoryId) {
+        List<Product> listProduct = productService.getProductsByCategoryId(categoryId);
+        return new  ResponseEntity<>(listProduct, HttpStatus.OK);
+    }
+
 }

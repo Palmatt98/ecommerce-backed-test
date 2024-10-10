@@ -14,9 +14,8 @@ public class Product {
     private String name;
     private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
-    @JsonBackReference
     private Category category;
 
     public void setId(Long id) {

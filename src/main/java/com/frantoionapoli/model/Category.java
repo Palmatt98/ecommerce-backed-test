@@ -1,6 +1,7 @@
 package com.frantoionapoli.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -18,8 +19,8 @@ public class Category {
     //i campi sono tutti private
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
-    @JsonManagedReference
     private List<Product> products = new ArrayList<>();
 
     public void setId(Integer id) {

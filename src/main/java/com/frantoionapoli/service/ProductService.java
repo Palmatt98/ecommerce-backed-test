@@ -7,6 +7,8 @@ import com.frantoionapoli.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -22,5 +24,15 @@ public class ProductService {
         product.setCategory(category);
         Product productCreated = productRepository.save(product);
         return productCreated;
+    }
+
+    public List<Product> getProducts() {
+        List<Product> listProduct = productRepository.findAll();
+        return listProduct;
+    }
+
+    public List<Product> getProductsByCategoryId(Integer categoryId) {
+        List<Product> listProductByCategory = productRepository.findByCategoryId(categoryId);
+        return  listProductByCategory;
     }
 }
